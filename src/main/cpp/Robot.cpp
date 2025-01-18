@@ -10,6 +10,17 @@ Robot::Robot() {
 }
 void Robot::RobotPeriodic() {
   frc::SmartDashboard::PutNumber("Gyro Yaw", ((units::degree_t) gyro.GetYaw()).value());
+  frc::SmartDashboard::PutBoolean("Gyro connected", gyro.IsConnected());
+
+  frc::SmartDashboard::PutBoolean("Gyro accelerationSaturation", gyro.GetActiveFaults().accelerationSaturation);
+  frc::SmartDashboard::PutBoolean("Gyro angularVelocitySaturation", gyro.GetActiveFaults().angularVelocitySaturation);
+  frc::SmartDashboard::PutBoolean("Gyro calibrating", gyro.GetActiveFaults().calibrating);
+  frc::SmartDashboard::PutBoolean("Gyro canGeneralError", gyro.GetActiveFaults().canGeneralError);
+  frc::SmartDashboard::PutBoolean("Gyro canIdConflict", gyro.GetActiveFaults().canIdConflict);
+  frc::SmartDashboard::PutBoolean("Gyro faultsValid", gyro.GetActiveFaults().faultsValid);
+  frc::SmartDashboard::PutBoolean("Gyro hardwareFault", gyro.GetActiveFaults().hardwareFault);
+  frc::SmartDashboard::PutBoolean("Gyro outOfTemperatureRange", gyro.GetActiveFaults().outOfTemperatureRange);
+  frc::SmartDashboard::PutBoolean("Gyro powerCycle", gyro.GetActiveFaults().powerCycle);
 }
 
 void Robot::AutonomousInit() {}
